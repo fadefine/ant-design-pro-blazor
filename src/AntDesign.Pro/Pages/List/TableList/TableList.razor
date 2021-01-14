@@ -1,6 +1,56 @@
 ﻿@namespace AntDesign.Pro.Template.Pages.List
 @page "/list/table-list"
 
-<h1>
-    TODO: Next Version
-</h1>
+<PageContainer Title="查询表格">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>Home</BreadcrumbItem>
+            <BreadcrumbItem>List</BreadcrumbItem>
+            <BreadcrumbItem>Table List</BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+
+    <ChildContent>
+        <GridContent>
+            <Card>
+                <Form Model="@_model"
+                      Layout="inline"
+                      Style="margin-top: 8px;"
+                      OnFinish="HandleSubmit">
+                    <FormItem Label="规则名称">
+                        <Input Placeholder="请输入" tip @bind-Value="@context.RuleName" />
+                    </FormItem>
+                    <FormItem Label="描述">
+                        <Input Placeholder="请输入" tip @bind-Value="@context.Describe" />
+                    </FormItem>
+                    <FormItem Label="服务调用次数">
+                        <Input Placeholder="请输入" tip @bind-Value="@context.ServiceCallsNumber" />
+                    </FormItem>
+                    <FormItem Label="上次调度时间">
+                        <DatePicker Style="width:100%;" TValue="DateTime?" ShowTime="@true" @bind-Value="@context.LastDispatchTime" />
+                    </FormItem>
+
+                    <FormItem Label="" Style="margin-top: 8px">
+                        <Button Style="margin-left:8px">
+                            重置
+                        </Button>
+                        <Button Type="primary" Loading="loading" OnClick=enterLoading>
+                            查询
+                        </Button>
+
+                    </FormItem>
+                </Form>
+            </Card>
+            
+            @*<Table
+                DataSource="@_data.TableListData"
+                HidePagination>
+                <AntDesign.Column Title="规则名称" @bind-Field="@context.RuleName" />
+                <AntDesign.Column Title="描述" @bind-Field="@context." />
+                <AntDesign.Column Title="服务调用次数" @bind-Field="@context." />
+                <AntDesign.Column Title="状态" @bind-Field="@context." />
+                <AntDesign.Column Title="上次调度事件" @bind-Field="@context." />
+            </Table>*@
+        </GridContent>
+    </ChildContent>
+</PageContainer>

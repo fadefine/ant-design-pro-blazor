@@ -40,6 +40,34 @@ namespace AntDesign.Pro.Template.Models
         public DateTime?[] DateRange { get; set; }
     }
 
+    public class TableListModel
+    {
+        /// <summary>
+        /// 规则名称
+        /// </summary>
+        public string RuleName { get; set; }
+
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Describe { get; set; }
+
+        /// <summary>
+        /// 服务调用次数
+        /// </summary>
+        public int? ServiceCallsNumber { get; set; }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int? State { get; set; }
+
+        /// <summary>
+        /// 上次调度时间
+        /// </summary>
+        public DateTime? LastDispatchTime { get; set; }
+    }
+
     public class Owner
     {
         public string Id { get; set; }
